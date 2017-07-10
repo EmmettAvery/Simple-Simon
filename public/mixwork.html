@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+    
+    <title>Simple Simon</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style type="text/css">
+   .boxes {
+        height:250px;
+        width:45%;
+        max-width: 250px;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin:20px;
+   }
+
+   h1, h4 {text-align: center}
+
+   .row {
+    display:flex;
+    justify-content: center;
+   }
+
+   img {
+    width: 100%;
+   height: 100%;
+   border-radius: 10px;
+}
+
+
+    </style>
+ 
+ </head>
+ 
+ <body>
+ 
+     <main class="container">
+         
+     <h1>Simple Jack</h1>
+     <h4>Months Into Production:<input type="textbox"></h4>
+
+    <div class="row">
+        <div id="0" class="boxes"></div>
+        <div id="1" class="boxes"></div>
+    </div>
+    <div class="row">
+        <button class="btn">Try Making Movie Again?</button>
+    </div>
+    <div class="row">
+        <div id="2" class="boxes"></div>
+        <div id="3" class="boxes"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     </main>
+ 
+     
+     <!-- jQuery Version 2.2.4 -->
+     <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+ 
+     <!-- Bootstrap JS -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     
+
+    <!-- Custom JS -->
+    <script>
+
+    var imgs = ["imgs/ss1.jpeg", "imgs/ss2.jpeg", "imgs/ss3.jpeg", "imgs/ss4.jpeg", "imgs/ss5.jpeg", "imgs/ss6.jpeg", "imgs/ss7.jpeg", "imgs/ss8.jpeg", "imgs/ss9.jpeg", "imgs/ss10.jpeg", "imgs/ss11.jpeg", "imgs/ss12.jpeg", "imgs/ss13.jpeg", "imgs/ss14.jpeg", "imgs/ss15.jpeg", "imgs/ss16.jpeg"]
+
+    var boxArray = [$("#0"),$("#1"),$("#2"),$("#3")]
+
+    var randomArray = [];
+    var clickArray= [];
+
+    //random image function
+
+    function imgRandom(imgArr) {
+        return imgArr[Math.floor(Math.random() * imgArr.length)];
+    }
+
+    //random box selector / adding to randomArray
+
+    var randomBox = function(){
+        var box = boxArray[Math.floor(Math.random()*boxArray.length)].html("<img src=" + imgRandom(imgs) + ">");
+        randomArray.push(box.selector);
+        console.log(randomArray);
+        setTimeout(function(){
+            box[0].innerHTML = "";
+            // .backgroungImage = ""
+        },1000)
+    };
+    //click function for buttons / adding to clickArray
+    $( ".boxes" ).each(function(index) {
+        $(this).on("click", function(){
+            console.log(index);
+            clickArray.push("#" + index);
+            console.log(clickArray);
+        }); 
+    });
+
+    setInterval(randomBox,1500);
+
+
+
+
+    // $("button").click(function(){
+    //     randomBox();
+    // });
+
+
+
+
+
+
+    // $('.boxes').click(function(){
+    //     i++;
+    //     if (i<=randomArray.length && $(this).html() != ""){
+    //         $(this).html("");
+    //     console.log(i);
+    //     console.log($(this));
+    //     }
+    // });
+
+    function attempt(){
+        randomBox();
+    }
+
+
+   
+
+    
+    </script>
+
+ </body>
+ 
+</html>
