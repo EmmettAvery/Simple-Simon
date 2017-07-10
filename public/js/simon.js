@@ -8,10 +8,7 @@ var opt2 = $('#1');
 var opt3 = $('#2');
 var opt4 = $('#3');
 var imgs = ["imgs/ss1.jpeg", "imgs/ss2.jpeg", "imgs/ss3.jpeg", "imgs/ss4.jpeg", "imgs/ss5.jpeg", "imgs/ss6.jpeg", "imgs/ss7.jpeg", "imgs/ss8.jpeg", "imgs/ss9.jpeg", "imgs/ss10.jpeg", "imgs/ss11.jpeg", "imgs/ss12.jpeg"];
-// var num1 = $('#num1').html().val();
-// var num2 = $('#num2').html().val();
-// var num3 = $('#num3').html().val();
-// var num4 = $('#num4').html().val();
+var cheater;
 //populate com Array
  function imgRandom(imgArr) {
         return imgArr[Math.floor(Math.random() * imgArr.length)];
@@ -30,32 +27,41 @@ var i = 0;
 	switch (simon[i]){
 		case 0:
 		opt1.html("<img src=" + imgRandom(imgs) + ">");
+		cheater = true;
 		setTimeout(function(){
-			opt1.html("<img src=>");
+			opt1.html('');
+			cheater = false;
 		},1000);
 		break;
 		case 1:
 		opt2.html("<img src=" + imgRandom(imgs) + ">");
+		cheater = true;
 		setTimeout(function(){
-			opt2.html("<img src=>");
+			opt2.html('');
+			cheater = false;
 		},1000);
 		break;
 		case 2:
 		opt3.html("<img src=" + imgRandom(imgs) + ">");
+		cheater = true;
 		setTimeout(function(){
-			opt3.html("<img src=>");
+			opt3.html('');
+			cheater = false;
 		},1000);
 		break;
 		case 3:
 		opt4.html("<img src=" + imgRandom(imgs) + ">");
+		cheater = true;
 		setTimeout(function(){
-			opt4.html("<img src=>");
+			opt4.html('');
+			cheater = false;
 		},1000);
 		break;
 	}
 	i++;
 	if(i >= simon.length){
 		clearInterval(godkillme);
+		cheater = false;
 	}
 	}, 1050);
 }
@@ -72,6 +78,10 @@ $('input').val(simon.length);
         //listener for input{
         $( ".boxes" ).each(function(index) {
         	$(this).on("click", function(){
+        		console.log(this.html);
+        		if (cheater == true){
+        		}
+        		else{
         		playerVal = index;
         		console.log(playerVal);
         		if (playerVal == simon[x]){
@@ -90,10 +100,12 @@ $('input').val(simon.length);
 				x = 0;
 				$('input').val(simon.length -1);
 			}
+		}
         	})
     	})
-       
+$('button').click(function(){
 resetGame();
+})
 
 			
      
