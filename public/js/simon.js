@@ -9,6 +9,11 @@ var opt3 = $('#2');
 var opt4 = $('#3');
 var imgs = ["imgs/ss1.jpeg", "imgs/ss2.jpeg", "imgs/ss3.jpeg", "imgs/ss4.jpeg", "imgs/ss5.jpeg", "imgs/ss6.jpeg", "imgs/ss7.jpeg", "imgs/ss8.jpeg", "imgs/ss9.jpeg", "imgs/ss10.jpeg", "imgs/ss11.jpeg", "imgs/ss12.jpeg"];
 var cheater;
+var speed = (1000/prompt("what speed do you want? (Any)"));
+var difficulty = prompt("what difficulty do you want? (Recommended 1, 2 or 3)");
+$('#speed').val(speed);
+$('#difficulty').val(difficulty);
+
 
 //populate com Array
  function imgRandom(imgArr) {
@@ -33,7 +38,7 @@ var i = 0;
 		setTimeout(function(){
 			opt1.html('');
 			cheater = false;
-		},1000);
+		},speed);
 		break;
 		case 1:
 		opt2.html("<img src=" + imgRandom(imgs) + ">");
@@ -41,7 +46,7 @@ var i = 0;
 		setTimeout(function(){
 			opt2.html('');
 			cheater = false;
-		},1000);
+		},speed);
 		break;
 		case 2:
 		opt3.html("<img src=" + imgRandom(imgs) + ">");
@@ -49,7 +54,7 @@ var i = 0;
 		setTimeout(function(){
 			opt3.html('');
 			cheater = false;
-		},1000);
+		},speed);
 		break;
 		case 3:
 		opt4.html("<img src=" + imgRandom(imgs) + ">");
@@ -57,7 +62,7 @@ var i = 0;
 		setTimeout(function(){
 			opt4.html('');
 			cheater = false;
-		},1000);
+		},speed);
 		break;
 	}
 	i++;
@@ -65,18 +70,18 @@ var i = 0;
 		clearInterval(godkillme);
 		cheater = false;
 	}
-	}, 1050);
+	}, Number(speed+50));
 }
 plsno();
 
 }
 function resetGame(){
 	simon = [];
-	populate(1);
+	populate(difficulty);
 	display();
 	arr = simon;
 }
-$('input').val(simon.length);
+// $('input').val(simon.length);
 //checking for proper values.
         //listener for input{
         $( ".boxes" ).each(function(index) {
@@ -94,14 +99,13 @@ $('input').val(simon.length);
 					x = 0;
 					alert("You lose!");
 					resetGame();
-					$('input').val(0);
+					$('#months').val(0);
 				}
 				if (x == simon.length){
-					alert("Next level!");
-					populate(1);
+					populate(difficulty);
 					display();
 				x = 0;
-				$('input').val(simon.length -1);
+				$('#months').val(simon.length - difficulty);
 			}
 		}
         	})
