@@ -9,6 +9,7 @@ var opt3 = $('#2');
 var opt4 = $('#3');
 var imgs = ["imgs/ss1.jpeg", "imgs/ss2.jpeg", "imgs/ss3.jpeg", "imgs/ss4.jpeg", "imgs/ss5.jpeg", "imgs/ss6.jpeg", "imgs/ss7.jpeg", "imgs/ss8.jpeg", "imgs/ss9.jpeg", "imgs/ss10.jpeg", "imgs/ss11.jpeg", "imgs/ss12.jpeg"];
 var cheater;
+
 //populate com Array
  function imgRandom(imgArr) {
         return imgArr[Math.floor(Math.random() * imgArr.length)];
@@ -18,7 +19,8 @@ function populate(x){
 		var rand = Math.floor(Math.random()* 4);
 		simon.push(rand);
 	}
-	console.log(simon);
+	console.log(simon)
+	
 }
 function display(){
 var i = 0;
@@ -72,6 +74,7 @@ function resetGame(){
 	simon = [];
 	populate(1);
 	display();
+	arr = simon;
 }
 $('input').val(simon.length);
 //checking for proper values.
@@ -84,7 +87,7 @@ $('input').val(simon.length);
         		else{
         		playerVal = index;
         		console.log(playerVal);
-        		if (playerVal == simon[x]){
+        		if (playerVal == arr[x]){
 					x++;
 				}          
 				else{
