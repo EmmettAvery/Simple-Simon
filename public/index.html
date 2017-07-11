@@ -41,17 +41,21 @@
  
  <body>
  
-     <main class="container">
+    <main class="container">
          
-     <h1>Simple Jack</h1>
-     <h4>Months Into Production:<input type="textbox"></h4>
+    <h1>Simple Jack</h1>
+    <h4>Months Into Production:<input id="months" type="textbox"></h4>
+    <h4>Difficulty:<input id="difficulty" type="textbox"></h4>
+    <h4>Speed (in milliseconds):<input id="speed" type="textbox"></h4>
 
     <div class="row">
         <div id="0" class="boxes"></div>
         <div id="1" class="boxes"></div>
     </div>
     <div class="row">
-        <button class="btn">Try Making Movie Again?</button>
+ 
+        <button class="btn">Start round 1</button>
+
     </div>
     <div class="row">
         <div id="2" class="boxes"></div>
@@ -66,74 +70,6 @@
      <!-- Bootstrap JS -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/simon.js"></script>
-
-    <!-- Custom JS -->
-    <script>
-
-    var imgs = ["imgs/ss1.jpeg", "imgs/ss2.jpeg", "imgs/ss3.jpeg", "imgs/ss4.jpeg", "imgs/ss5.jpeg", "imgs/ss6.jpeg", "imgs/ss7.jpeg", "imgs/ss8.jpeg", "imgs/ss9.jpeg", "imgs/ss10.jpeg", "imgs/ss11.jpeg", "imgs/ss12.jpeg"]
-
-    var boxArray = [$("#0"),$("#1"),$("#2"),$("#3")]
-
-    var randomArray = [];
-    var clickArray= [];
-
-    //random image function
-
-    function imgRandom(imgArr) {
-        return imgArr[Math.floor(Math.random() * imgArr.length)];
-    }
-
-    //random box selector / adding to randomArray
-
-    function randomBox(){
-        var box = boxArray[Math.floor(Math.random()*boxArray.length)].html("<img src=" + imgRandom(imgs) + ">");
-        randomArray.push(box.selector);
-        // console.log(randomArray);
-        setTimeout(function(){
-            box[0].innerHTML = "";
-            // .backgroungImage = ""
-        },1000)
-    };
-    //click function for buttons / adding to clickArray
-    $( ".boxes" ).each(function(index) {
-        $(this).on("click", function(){
-            // console.log(index);
-            clickArray.push("#" + index);
-            // console.log(clickArray);
-        }); 
-    });
-
-
-
-
-    $("button").click(function(){
-        randomBox();
-
-    });
-
-
-
-
-
-
-    // $('.boxes').click(function(){
-    //     i++;
-    //     if (i<=randomArray.length && $(this).html() != ""){
-    //         $(this).html("");
-    //     console.log(i);
-    //     console.log($(this));
-    //     }
-    // });
-
-    function attempt(){
-        randomBox();
-    }
-
-
-   
-
-    
-    </script>
 
  </body>
  
