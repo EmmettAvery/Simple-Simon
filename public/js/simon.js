@@ -14,105 +14,108 @@ var difficulty = prompt("what difficulty do you want? (Recommended 1, 2 or 3)");
 $('#speed').val(speed);
 $('#difficulty').val(difficulty);
 
+//random image fills from imgs array
 
-//populate com Array
  function imgRandom(imgArr) {
         return imgArr[Math.floor(Math.random() * imgArr.length)];
     }
+
+//populate com Array
+
 function populate(x){
 	for (var i = 0; i < x; i++){
 		var rand = Math.floor(Math.random()* 4);
 		simon.push(rand);
 	}
-	console.log(simon)
-	
+	console.log(simon)	
 }
-function display(){
-var i = 0;
-	function plsno(){
-	var godkillme = setInterval(function() {
-	switch (simon[i]){
-		case 0:
-		opt1.html("<img src=" + imgRandom(imgs) + ">");
-		cheater = true;
-		setTimeout(function(){
-			opt1.html('');
-			cheater = false;
-		},speed);
-		break;
-		case 1:
-		opt2.html("<img src=" + imgRandom(imgs) + ">");
-		cheater = true;
-		setTimeout(function(){
-			opt2.html('');
-			cheater = false;
-		},speed);
-		break;
-		case 2:
-		opt3.html("<img src=" + imgRandom(imgs) + ">");
-		cheater = true;
-		setTimeout(function(){
-			opt3.html('');
-			cheater = false;
-		},speed);
-		break;
-		case 3:
-		opt4.html("<img src=" + imgRandom(imgs) + ">");
-		cheater = true;
-		setTimeout(function(){
-			opt4.html('');
-			cheater = false;
-		},speed);
-		break;
-	}
-	i++;
-	if(i >= simon.length){
-		clearInterval(godkillme);
-		cheater = false;
-	}
-	}, Number(speed+50));
-}
-plsno();
 
-}
+//displaying simple jack comp's pattern
+
+function display(){
+	var i = 0;
+	var godkillme = setInterval(function() {
+		switch (simon[i]){
+			case 0:
+				opt1.html("<img src=" + imgRandom(imgs) + ">");
+				cheater = true;
+				setTimeout(function(){
+					opt1.html('');
+					cheater = false;
+				},speed);
+			break;
+			case 1:
+				opt2.html("<img src=" + imgRandom(imgs) + ">");
+				cheater = true;
+				setTimeout(function(){
+					opt2.html('');
+					cheater = false;
+				},speed);
+			break;
+			case 2:
+				opt3.html("<img src=" + imgRandom(imgs) + ">");
+				cheater = true;
+				setTimeout(function(){
+					opt3.html('');
+					cheater = false;
+				},speed);
+			break;
+			case 3:
+				opt4.html("<img src=" + imgRandom(imgs) + ">");
+				cheater = true;
+				setTimeout(function(){
+					opt4.html('');
+					cheater = false;
+				},speed);
+			break;
+		}
+		i++;
+		if(i >= simon.length){
+			clearInterval(godkillme);
+			cheater = false;
+		};
+	}, Number(speed+50));
+};
+
+//reset game
+
 function resetGame(){
 	simon = [];
 	populate(difficulty);
 	display();
 	arr = simon;
 }
-// $('input').val(simon.length);
-//checking for proper values.
-        //listener for input{
-        $( ".boxes" ).each(function(index) {
-        	$(this).on("click", function(){
-        		console.log(this.html);
-        		if (cheater == true){
-        		}
-        		else{
-        		playerVal = index;
-        		console.log(playerVal);
-        		if (playerVal == arr[x]){
-					x++;
-				}          
-				else{
-					x = 0;
-					alert("You lose!");
-					resetGame();
-					$('#months').val(0);
-				}
-				if (x == simon.length){
-					populate(difficulty);
-					display();
+
+
+//listener for input
+
+$( ".boxes" ).each(function(index) {
+	$(this).on("click", function(){
+		console.log(this.html);
+		if (cheater !== true){
+			playerVal = index;
+			console.log(playerVal);
+    		if (playerVal == arr[x]){
+				x++;
+			} else {
 				x = 0;
-				$('#months').val(simon.length - difficulty);
-			}
-		}
-        	})
-    	})
+				alert("You lose!");
+				resetGame();
+				$('#months').val(0);
+			};
+			if (x == simon.length){
+				populate(difficulty);
+				display();
+			x = 0;
+			$('#months').val(simon.length - difficulty);
+			};
+		};
+	});
+});
+
 $('button').click(function(){
-resetGame();
-})
+	resetGame();
+});
 
 			
      
