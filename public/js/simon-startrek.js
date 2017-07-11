@@ -34,7 +34,7 @@ $(document).ready(function() {
 		console.log(simon)	
 	};
 
-	//displaying simple jack comp's pattern
+	//displaying simple trek's comp's pattern
 
 	function display(){
 		var i = 0;
