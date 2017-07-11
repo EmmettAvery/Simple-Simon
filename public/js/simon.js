@@ -7,7 +7,7 @@ var opt1 = $("#0");
 var opt2 = $('#1');
 var opt3 = $('#2');
 var opt4 = $('#3');
-var imgs = ["imgs/ss1.jpeg", "imgs/ss2.jpeg", "imgs/ss3.jpeg", "imgs/ss4.jpeg", "imgs/ss5.jpeg", "imgs/ss6.jpeg", "imgs/ss7.jpeg", "imgs/ss8.jpeg", "imgs/ss9.jpeg", "imgs/ss10.jpeg", "imgs/ss11.jpeg", "imgs/ss12.jpeg"];
+var imgs = ["imgs/simplejack/ss1.jpeg", "imgs/simplejack/ss2.jpeg", "imgs/simplejack/ss3.jpeg", "imgs/simplejack/ss4.jpeg", "imgs/simplejack/ss5.jpeg", "imgs/simplejack/ss6.jpeg", "imgs/simplejack/ss7.jpeg", "imgs/simplejack/ss8.jpeg", "imgs/simplejack/ss9.jpeg", "imgs/simplejack/ss10.jpeg", "imgs/simplejack/ss11.jpeg", "imgs/simplejack/ss12.jpeg"];
 var cheater;
 var speed = (1000/prompt("what speed do you want? (Any)"));
 var difficulty = prompt("what difficulty do you want? (Recommended 1, 2 or 3)");
