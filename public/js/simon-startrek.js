@@ -1,4 +1,4 @@
-$(document).ready(function() {
+// $(document).ready(function() {
 
 "use strict";
 
@@ -18,13 +18,13 @@ $(document).ready(function() {
 	$('#difficulty').val(difficulty);
 
 
-	//random image fills from imgs array
+//random image fills from imgs array
 
 	 function imgRandom(imgArr) {
 	        return imgArr[Math.floor(Math.random() * imgArr.length)];
 	    };
 
-	//populate com Array
+//populate com Array
 
 	function populate(x){
 		for (var i = 0; i < x; i++){
@@ -34,7 +34,7 @@ $(document).ready(function() {
 		console.log(simon)	
 	};
 
-	//displaying simple trek's comp's pattern
+//displaying simple trek's comp's pattern
 
 	function display(){
 		var i = 0;
@@ -81,21 +81,33 @@ $(document).ready(function() {
 		}, Number(speed+50));
 	};
 
-	//reset game
+//reset and end game functions
 
 	function resetGame(){
 		simon = [];
 		populate(difficulty);
 		display();
 		arr = simon;
-	}
+	};
 
+	function endGame(){
+		simon = [];
+		populate(difficulty);
+		arr = simon;
+	};
 
-	//listener for input
+//simple trek box click functionalities
 
 	$( ".boxes" ).each(function(index) {
 		$(this).on("click", function(){
-			console.log(this.html);
+	//spin animation on click
+			$(this).animate({
+                height:"0px"
+            },100,function(){
+            	$(this).animate({
+            		height:"250px"
+            	},100);
+            });
 			if (cheater !== true){
 				playerVal = index;
 				console.log(playerVal);
@@ -103,9 +115,11 @@ $(document).ready(function() {
 					x++;
 				} else {
 					x = 0;
-					alert("You lose!");
-					resetGame();
+					$('.hidden').show();
+					endGame();
 					$('#months').val(0);
+					$(".boxes").toggleClass('animate');
+					$('button').html("PLAY AGAIN").prop("disabled", false);
 				};
 				if (x == simon.length){
 					populate(difficulty);
@@ -116,7 +130,7 @@ $(document).ready(function() {
 			};
 		});
 
-		//opacity change on clicks
+	//opacity change on clicks
 
 		$(this).on("mousedown", function(){
 				$(this).css('backgroundColor','rgba(225,225,225,.8)');
@@ -126,13 +140,18 @@ $(document).ready(function() {
 		});
 	});
 
-	//reset game button
+//reset game button
 
-	$('button').click(function(){
-		resetGame();
+	$('button').click(function(){	
+		if ($('button').html() == "Good Luck"){
+				$('button').prop("disabled", true);
+			} else {
+				resetGame();
+			};
+		$(this).html("Good Luck");
 	});
 
-	//scrolling background
+//scrolling background
 
 	$(function(){
 	    var x = 0;
@@ -142,4 +161,4 @@ $(document).ready(function() {
 	    }, 100);
 	});
 			
-});   
+// });   
