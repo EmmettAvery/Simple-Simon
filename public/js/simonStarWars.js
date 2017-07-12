@@ -5,20 +5,12 @@ var playerVal;
 var x = 0;
 var simon = [];
 var opt1 = $("#fight");
-var imgs = ["imgs/simplejack/ss1.jpeg", "imgs/simplejack/ss2.jpeg", "imgs/simplejack/ss3.jpeg", "imgs/simplejack/ss4.jpeg", "imgs/simplejack/ss5.jpeg", "imgs/simplejack/ss6.jpeg", "imgs/simplejack/ss7.jpeg", "imgs/simplejack/ss8.jpeg", "imgs/simplejack/ss9.jpeg", "imgs/simplejack/ss10.jpeg", "imgs/simplejack/ss11.jpeg", "imgs/simplejack/ss12.jpeg"];
 var cheater;
-//var speed = (1000/prompt("what speed do you want? (Any)"));
 var difficulty = 1;
 $('#difficulty').val(difficulty);
 opt1.html('<x-gif src="imgs/sturwurs/Ani_Obi.gif">');
 $('#months').val(0);
 var months = $('#months');
-
-//random image fills from imgs array
-
- function imgRandom(imgArr) {
-        return imgArr[Math.floor(Math.random() * imgArr.length)];
-    }
 
 //populate com Array
 
@@ -145,64 +137,65 @@ $(document).keyup(function(event){
 				resetGame();
 				$('#months').val(0);
 				$('button').prop('hidden', false);
+				$('#rand').html('<audio src="sounds/myenemy.mp3" type="audio/mpeg" autoplay></audio>');
 			};
 			if (x == simon.length){
 				populate(difficulty);
 				display();
-			x = 0;
-			months.val(simon.length - difficulty);
+				x = 0;
+				months.val(simon.length - difficulty);
 			};
 		};
 	});
 	resetGame();
 	$('button').click(function(){
-	display();
-	arr = simon;
-	$('button').prop('hidden', true);
+		display();
+		arr = simon;
+		$('button').prop('hidden', true);
 	});
 	$('#after').html('<audio src="sounds/DuelOfTheFates.mp3" type="audio/mpeg" autoplay loop></audio>');
 	var heTalks = setInterval(function(){
 		var ehh = Math.floor(Math.random()* 70)+1;
 		switch(ehh){
-	case 1:
-	$('#rand').html('<audio src="sounds/obiwan_chosenone.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 5:
-	$('#rand').html('<audio src="sounds/AnakinFunbegins.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 10:
-	$('#rand').html('<audio src="sounds/mustbedone.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 15:
-	$('#rand').html('<audio src="sounds/twisted.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 20:
-	$('#rand').html('<audio src="sounds/sworetodestroy.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 25:
-	$('#rand').html('<audio src="sounds/willnottakeher.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 30:
-	$('#rand').html('<audio src="sounds/Ih8u.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 40:
-	$('#rand').html('<audio src="sounds/onlyasith.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 45:
-	$('#rand').html('<audio src="sounds/notjointhem.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 50:
-	$('#rand').html('<audio src="sounds/myenemy.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 55:
-	$('#rand').html('<audio src="sounds/weremybrother.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 60:
-	$('#rand').html('<audio src="sounds/weremybrother.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
-	case 65:
-	$('#rand').html('<audio src="sounds/dontlectureme.mp3" type="audio/mpeg" autoplay></audio>');
-	break;
+			case 1:
+				$('#rand').html('<audio src="sounds/obiwan_chosenone.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 5:
+				$('#rand').html('<audio src="sounds/AnakinFunbegins.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 10:
+				$('#rand').html('<audio src="sounds/mustbedone.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 15:
+				$('#rand').html('<audio src="sounds/twisted.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 20:
+				$('#rand').html('<audio src="sounds/sworetodestroy.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 25:
+				$('#rand').html('<audio src="sounds/willnottakeher.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 30:
+				$('#rand').html('<audio src="sounds/Ih8u.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 40:
+				$('#rand').html('<audio src="sounds/onlyasith.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 45:
+				$('#rand').html('<audio src="sounds/notjointhem.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 50:
+				$('#rand').html('<audio src="sounds/myenemy.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 55:
+				$('#rand').html('<audio src="sounds/weremybrother.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 60:
+				$('#rand').html('<audio src="sounds/weremybrother.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
+			case 65:
+				$('#rand').html('<audio src="sounds/dontlectureme.mp3" type="audio/mpeg" autoplay></audio>');
+			break;
 		}
 	},5000);
 })
