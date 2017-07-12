@@ -13,13 +13,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style type="text/css">
 
-       /* .rotate {
-            transform:rotate(720deg);
-            transition-property: transform;
-            transition-duration: 2s;
-            transition-timing-function: linear;
-        }*/
-
         .boxes {
             height:250px;
             width:45%;
@@ -28,11 +21,10 @@
             border-radius: 10px;
             margin:20px;
             background-color:rgba(225,225,225,.5);
-            /*transform:rotate(20deg);*/
         }
 
         @keyframes rotate {
-           from {transform:rotate(0deg);}
+            from {transform:rotate(0deg);}
             to {transform:rotate(360deg);}
         }
 
@@ -63,6 +55,11 @@
             margin-top:15px;
         }
 
+        h3 {
+            text-align:center;
+            color:white;
+        }
+
         .row {
             display:flex;
             justify-content: center;
@@ -80,7 +77,7 @@
             margin-top: 15px;
         }
         img#enterprise {
-            width:200px; /* you can use % */
+            width:200px;
             height: auto;
         }
 
@@ -98,18 +95,22 @@
             <h4>Enemy Difficulty :<input id="difficulty" type="textbox"></h4>
             <h4>Enemy Speed :<input id="speed" type="textbox"></h4>
         </div>
+        
         <div class="row">
             <div id="0" class="boxes"></div>
             <div id="1" class="boxes"></div>
         </div>
         <div class="row">
      
-            <button class="btn">Start Round One</button>
+            <button class="btn">Engage</button>
 
         </div>
         <div class="row">
             <div id="2" class="boxes"></div>
             <div id="3" class="boxes"></div>
+        </div>
+        <div class="row">
+            <h3 id="hiddenLoser" hidden>YOU WERE CAUGHT AND VAPORIZED BY YOUR ENEMY!!!</h1>
         </div>
     </main>
     

@@ -1,4 +1,4 @@
-// $(document).ready(function() {
+$(document).ready(function() {
 
 "use strict";
 
@@ -14,28 +14,23 @@
 	var cheater;
 	var speed = (1000/prompt("what speed do you want? (Any)"));
 	var difficulty = prompt("what difficulty do you want? (Recommended 1, 2 or 3)");
-	$('#speed').val(speed);
+	$('#speed').val(1000/speed);
 	$('#difficulty').val(difficulty);
 
-
 //random image fills from imgs array
-
 	 function imgRandom(imgArr) {
 	        return imgArr[Math.floor(Math.random() * imgArr.length)];
 	    };
 
 //populate com Array
-
 	function populate(x){
 		for (var i = 0; i < x; i++){
 			var rand = Math.floor(Math.random()* 4);
 			simon.push(rand);
-		};
-		console.log(simon)	
+		};	
 	};
 
 //displaying simple trek's comp's pattern
-
 	function display(){
 		var i = 0;
 		var godkillme = setInterval(function() {
@@ -82,7 +77,6 @@
 	};
 
 //reset and end game functions
-
 	function resetGame(){
 		simon = [];
 		populate(difficulty);
@@ -97,7 +91,6 @@
 	};
 
 //simple trek box click functionalities
-
 	$( ".boxes" ).each(function(index) {
 		$(this).on("click", function(){
 	//spin animation on click
@@ -110,19 +103,20 @@
             });
 			if (cheater !== true){
 				playerVal = index;
-				console.log(playerVal);
 	    		if (playerVal == arr[x]){
 					x++;
 				} else {
 					x = 0;
-					$('.hidden').show();
+					$('#hiddenLoser').prop("hidden", false);
 					endGame();
 					$('#months').val(0);
 					$(".boxes").toggleClass('animate');
-					$('button').html("PLAY AGAIN").prop("disabled", false);
+					$('button').html("New Ship?").prop("disabled", false);
+					$('#speed').val(Number(difficulty));
 				};
 				if (x == simon.length){
 					populate(difficulty);
+					$('#speed').val(Number($('#speed').val()) + Number(difficulty));
 					display();
 					x = 0;
 					$('#months').val(simon.length - difficulty);
@@ -131,28 +125,29 @@
 		});
 
 	//opacity change on clicks
-
 		$(this).on("mousedown", function(){
 				$(this).css('backgroundColor','rgba(225,225,225,.8)');
-		});
-		$(this).on("mouseup", function(){
+		}).on("mouseup", function(){
 				$(this).css('backgroundColor','rgba(225,225,225,.5)');
 		});
+
 	});
 
 //reset game button
-
-	$('button').click(function(){	
-		if ($('button').html() == "Good Luck"){
+	$('button').click(function(){		
+		if ($('button').html() == "MORE POWER SCOTTY!"){
 				$('button').prop("disabled", true);
 			} else {
 				resetGame();
+				$('#hiddenLoser').prop("hidden", true)
 			};
-		$(this).html("Good Luck");
+		$(this).html("MORE POWER SCOTTY!");
+		if ($('button').html() == "MORE POWER SCOTTY!"){
+				$('button').prop("disabled", true);
+			}
 	});
 
 //scrolling background
-
 	$(function(){
 	    var x = 0;
 	    setInterval(function(){
@@ -161,4 +156,4 @@
 	    }, 100);
 	});
 			
-// });   
+});   
