@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+    
+    <title>Simple Simon</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style type="text/css">
+   .boxes {
+        height:250px;
+        width:45%;
+        max-width: 250px;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin:20px;
+   }
+
+   h1, h4 {
+    text-align: center;
+    color:white;
+   }
+
+   .row {
+    display:flex;
+    justify-content: center;
+   }
+   .fight{
+    position: absolute;
+    position: bottom;
+    height:150px;
+    width:200px; 
+    margin-left: 25%;
+    margin-right: 25%;
+   }
+   img {
+    width: 100%;
+   height: 100%;
+   border-radius: 10px;
+}
+body{
+    background-image: url(./imgs/sturwurs/background.gif);
+    background-size: 100% 200%;
+    background-repeat: repeat-x;
+}
+
+    </style>
+ 
+ </head>
+ 
+ <body>
+ 
+    <main class="container">
+         <h1>Brother fight</h1>
+    <h4>Swings survived<input id="months" type="textbox"></h4>
+    <h4>Anger:<input id="difficulty" type="textbox"></h4>
+    <h4>Speed (in milliseconds):<input id="speed" type="textbox"></h4>
+
+    <div class="fight"><img src="imgs/sturwurs/Ani_Obi.gif">
+    </div>
+     </main>
+ 
+     
+     <!-- jQuery Version 2.2.4 -->
+     <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+ 
+     <!-- Bootstrap JS -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/simonStarWars.js"></script>
+
+ </body>
+ 
+</html>
