@@ -27,7 +27,6 @@ function populate(x){
 		var rand = Math.floor(Math.random()* 4);
 		simon.push(rand);
 	}
-	console.log(simon)	
 }
 
 //displaying simple jack comp's pattern
@@ -145,7 +144,7 @@ $(document).keyup(function(event){
 				alert("You lose!");
 				resetGame();
 				$('#months').val(0);
-				$('button').prop('disabled', false);
+				$('button').prop('hidden', false);
 			};
 			if (x == simon.length){
 				populate(difficulty);
@@ -159,6 +158,51 @@ $(document).keyup(function(event){
 	$('button').click(function(){
 	display();
 	arr = simon;
-	$('button').prop('disabled', true);
+	$('button').prop('hidden', true);
 	});
-});
+	$('#after').html('<audio src="sounds/DuelOfTheFates.mp3" type="audio/mpeg" autoplay loop></audio>');
+	var heTalks = setInterval(function(){
+		var ehh = Math.floor(Math.random()* 70)+1;
+		switch(ehh){
+	case 1:
+	$('#rand').html('<audio src="sounds/obiwan_chosenone.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 5:
+	$('#rand').html('<audio src="sounds/AnakinFunbegins.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 10:
+	$('#rand').html('<audio src="sounds/mustbedone.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 15:
+	$('#rand').html('<audio src="sounds/twisted.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 20:
+	$('#rand').html('<audio src="sounds/sworetodestroy.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 25:
+	$('#rand').html('<audio src="sounds/willnottakeher.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 30:
+	$('#rand').html('<audio src="sounds/Ih8u.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 40:
+	$('#rand').html('<audio src="sounds/onlyasith.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 45:
+	$('#rand').html('<audio src="sounds/notjointhem.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 50:
+	$('#rand').html('<audio src="sounds/myenemy.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 55:
+	$('#rand').html('<audio src="sounds/weremybrother.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 60:
+	$('#rand').html('<audio src="sounds/weremybrother.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+	case 65:
+	$('#rand').html('<audio src="sounds/dontlectureme.mp3" type="audio/mpeg" autoplay></audio>');
+	break;
+		}
+	},5000);
+})

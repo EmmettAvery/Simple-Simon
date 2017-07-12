@@ -22,6 +22,7 @@
        }
        h3{
         color:black;
+        text-align: center;
        }
        h1, h4 {
         text-align: center;
@@ -34,11 +35,15 @@
         display:flex;
         justify-content: center;
        }
+       div.eeeee {
+display:flex;
+justify-content:space-between;
+       }
        #fight{
         position: absolute;
         height:150px;
         width:200px; 
-        margin-left: 25%;
+        margin-left: 35%;
         margin-right: 25%;
         margin-top:5px;
        }
@@ -88,7 +93,10 @@
  </head>
  
  <body>
- 
+ <audio src="sounds/obiwan_chosenone.mp3" type="audio/mpeg" autoplay></audio>
+ <div id="after"></div>
+  <div id="rand"></div>
+
     <main class="container">
 
         <h1>Brother fight</h1>
@@ -96,10 +104,13 @@
         <h4>Anger:<input id="difficulty" type="textbox" value="1"></h4>
         <div id="fight"></div>
         <button id="surpass_fight">No, Ani</button>
-        <div id="cheat1"><x-gif src="imgs/sturwurs/Ani_Obi-left.gif"></x-gif><h3>left</h3></div>
-        <div id="cheat2"><x-gif src="imgs/sturwurs/Ani_Obi-right.gif"></x-gif><h3>right</h3></div>
-        <div id="cheat3"><x-gif src="imgs/sturwurs/Ani_Obi-up.gif"></x-gif><h3>up</h3></div>
-        <div id="cheat4"><x-gif src="imgs/sturwurs/Ani_Obi-down.gif"></x-gif><h3>down</h3></div>
+        <div class="eeeee">
+            <div id="cheat1"><x-gif src="imgs/sturwurs/Ani_Obi-left.gif"></x-gif><h3>left</h3></div>
+            <div id="cheat2"><x-gif src="imgs/sturwurs/Ani_Obi-right.gif"></x-gif><h3>right</h3></div></div>
+        <div class="eeeee">
+            <div id="cheat3"><x-gif src="imgs/sturwurs/Ani_Obi-up.gif"></x-gif><h3>up</h3></div>
+            <div id="cheat4"><x-gif src="imgs/sturwurs/Ani_Obi-down.gif"></x-gif><h3>down</h3></div>
+        </div>
     </main>
     <!-- for x-gif -->
     <script>
