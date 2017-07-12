@@ -99,7 +99,7 @@ $( ".boxes" ).each(function(index) {
 				x++;
 			} else {
 				x = 0;
-				alert("You lose!");
+				//alert("You lose!");
 				resetGame();
 				$('#months').val(0);
 			};
@@ -115,6 +115,7 @@ $( ".boxes" ).each(function(index) {
 
 $('button').click(function(){
 	resetGame();
+	$('button').
 });
 
 			
