@@ -6,7 +6,7 @@ var simon = [];
 var opt1 = $(".fight");
 var imgs = ["imgs/simplejack/ss1.jpeg", "imgs/simplejack/ss2.jpeg", "imgs/simplejack/ss3.jpeg", "imgs/simplejack/ss4.jpeg", "imgs/simplejack/ss5.jpeg", "imgs/simplejack/ss6.jpeg", "imgs/simplejack/ss7.jpeg", "imgs/simplejack/ss8.jpeg", "imgs/simplejack/ss9.jpeg", "imgs/simplejack/ss10.jpeg", "imgs/simplejack/ss11.jpeg", "imgs/simplejack/ss12.jpeg"];
 var cheater;
-var speed = (1000/prompt("what speed do you want? (Any)"));
+//var speed = (1000/prompt("what speed do you want? (Any)"));
 var difficulty = prompt("what difficulty do you want? (Recommended 1, 2 or 3)");
 $('#speed').val(speed);
 $('#difficulty').val(difficulty);
@@ -63,7 +63,7 @@ function display(){
 				setTimeout(function(){
 					opt1.html('<img src="imgs/sturwurs/Ani_Obi.gif">');
 					cheater = false;
-				},2000);
+				},2125);
 			break;
 		}
 		i++;
@@ -92,22 +92,21 @@ $(document).keyup(function(event){
 			playerVal = event.keyCode;
 			switch (playerVal){
 				case 38:
-				playerVal = 3;
+				playerVal = 0;
 				break;
 				case 37:
-				playerVal = 0;
+				playerVal = 1;
 				break;
 				case 40:
 				playerVal = 2;
 				break;
 				case 39:
-				playerVal = 1;
+				playerVal = 3;
 				break;
 			}
 			console.log(playerVal);
     		if (playerVal == arr[x]){
 				x++;
-				var godkillme = setInterval(function() {
 				switch (playerVal){
 					case 1:
 						opt1.html('<img src="imgs/sturwurs/Ani_Obi-left.gif">');
@@ -142,9 +141,6 @@ $(document).keyup(function(event){
 						},2000);
 					break;
 				}
-					clearInterval(godkillme);
-					cheater = false;
-				}, Number(2050));
 			} else {
 				x = 0;
 				alert("You lose!");
